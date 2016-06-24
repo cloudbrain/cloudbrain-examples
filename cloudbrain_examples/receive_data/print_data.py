@@ -4,14 +4,14 @@ from cloudbrain.subscribers.rabbitmq import PikaSubscriber
 
 
 
-def _print_callback(ch, method, properties, body):
+def _print_callback(unsed_ch, unsed_method, unsed_properties, body):
     print "==> %s" % body
 
 
 
 def main():
     # Routing info
-    user_id = "amsterdam"
+    user_id = "some_unique_id"
     device = 'openbci'
     base_routing_key = '%s:%s' % (user_id, device)
 

@@ -2,7 +2,7 @@ import sys
 
 import matplotlib.pyplot as plt
 
-from cloudbrain_examples.utils.sine_wave import sine_wave, signal_generator
+from cloudbrain.core.signal import sine_wave, signal_generator
 
 
 
@@ -24,7 +24,7 @@ def main():
     sampling_frequency = 250.0  # i.e. 0.004 seconds (=1/250.0)
     alpha_amplitude = 10.0
     alpha_freq = 10.0
-    beta_amplitude = 0.0
+    beta_amplitude = 5.0
     beta_freq = 25.0
     num_channels = 8
     number_points = 249
