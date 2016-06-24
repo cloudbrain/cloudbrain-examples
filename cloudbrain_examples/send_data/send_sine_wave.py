@@ -2,7 +2,7 @@ import sys
 import time
 
 from cloudbrain.publishers.rabbitmq import PikaPublisher
-from cloudbrain_examples.mock_data.sine_wave import sine_wave, signal_generator
+from cloudbrain.core.signal import sine_wave, signal_generator
 
 
 
