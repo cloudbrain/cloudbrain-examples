@@ -72,11 +72,11 @@ def consume_metric(connection, deliver, properties, msg_s):
 
 
 def main():
-    device_id = "amsterdam"
-    device_name = "openbci"
+    device_id = "some_unique_id"
+    device_name = "mock_device"
     base_routing_key = "%s:%s" % (device_id, device_name)
 
-    metric_name = 'eeg'
+    metric_name = 'some_metric'
     num_channels = 8
 
     rabbitmq_address = "localhost"

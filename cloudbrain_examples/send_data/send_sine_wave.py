@@ -8,7 +8,7 @@ from cloudbrain.core.signal import sine_wave, signal_generator
 
 def main():
     # Routing info
-    user_id = "amsterdam"
+    user_id = "some_unique_id"
     device = 'openbci'
     base_routing_key = '%s:%s' % (user_id, device)
 

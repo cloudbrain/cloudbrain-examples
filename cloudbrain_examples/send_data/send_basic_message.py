@@ -6,7 +6,7 @@ from cloudbrain.publishers.rabbitmq import PikaPublisher
 
 def main():
     # Routing info
-    user_id = "amsterdam"
+    user_id = "some_unique_id"
     device = 'openbci'
     base_routing_key = '%s:%s' % (user_id, device)
 
