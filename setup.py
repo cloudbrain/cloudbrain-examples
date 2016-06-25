@@ -8,15 +8,15 @@ def findRequirements():
   install_requirements option.
   """
   return [line.strip()
-          for line in open("requirements.txt").readlines()
-          if not line.startswith("#")]
+          for line in open('requirements.txt').readlines()
+          if not line.startswith('#')]
 
 
-setup(name="cloudbrain_examples",
-      version="0.0.1",
-      description="CloudBrain Examples",
-      author="Marion Le Borgne",
-      url="https://github.com/cloudbrain/cloudbrain-examples",
+setup(name='cloudbrain_examples',
+      version='0.0.1',
+      description='CloudBrain Examples',
+      author='Marion Le Borgne',
+      url='https://github.com/cloudbrain/cloudbrain-examples',
       packages=find_packages(),
       install_requires=findRequirements(),
       license=open('LICENSE.txt').read(),

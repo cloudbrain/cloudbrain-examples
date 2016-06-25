@@ -4,36 +4,26 @@ import time
 from cloudbrain.publishers.rabbitmq import PikaPublisher
 from cloudbrain.core.signal import sine_wave, signal_generator
 
+from cloudbrain_examples.settings import (base_routing_key, metric_name, num_channels, buffer_size,
+                                          rabbitmq_address, rabbitmq_user, rabbitmq_pwd)
 
 
 def main():
-    # Routing info
-    user_id = "some_unique_id"
-    device = 'openbci'
-    base_routing_key = '%s:%s' % (user_id, device)
-
-    # Metric info
-    metric_name = 'eeg'
-    num_channels = 8
-    buffer_size = 10
 
     # Sine wave params
     alpha_amplitude = 10.0
     alpha_freq = 10.0
     beta_amplitude = 5.0
     beta_freq = 25.0
-
-    # RabbitMQ options
-    rabbitmq_address = 'localhost'
-    rabbitmq_user = 'guest'
-    rabbitmq_pwd = 'guest'
+    notch_amplitude = 10.0
+    notch_freq = 60.0 # Simulate ambiant electrical noise
 
     # Mock data generator (sine wave)
     sampling_frequency = 250.0  # 1/250 = 0.004 s
-    number_points = 249
+    number_points = 250
     signal = sine_wave(number_points, sampling_frequency, alpha_amplitude, alpha_freq,
-                       beta_amplitude, beta_freq)
-    data = signal_generator(num_channels, number_points, sampling_frequency, signal)
+                       beta_amplitude, beta_freq, notch_amplitude, notch_freq)
+    data = signal_generator(num_channels, sampling_frequency, signal)
 
     # Setup the publisher
     publisher = PikaPublisher(base_routing_key=base_routing_key,

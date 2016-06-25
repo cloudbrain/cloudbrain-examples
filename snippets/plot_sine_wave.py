@@ -22,10 +22,12 @@ def plot_data(num_channels, data):
 def main():
     # Params
     sampling_frequency = 250.0  # i.e. 0.004 seconds (=1/250.0)
-    alpha_amplitude = 10.0
+    alpha_amplitude = 1.0
     alpha_freq = 10.0
-    beta_amplitude = 5.0
+    beta_amplitude = 1.0
     beta_freq = 25.0
+    notch_amplitude = 10.0
+    notch_freq = 60.0
     num_channels = 8
     number_points = 249
     buffer_size = 10
@@ -33,8 +35,8 @@ def main():
 
     # Sine wave data
     signal = sine_wave(number_points, sampling_frequency, alpha_amplitude,
-                       alpha_freq, beta_amplitude, beta_freq)
-    data = signal_generator(num_channels, number_points, sampling_frequency, signal)
+                       alpha_freq, beta_amplitude, beta_freq, notch_amplitude, notch_freq)
+    data = signal_generator(num_channels, sampling_frequency, signal)
 
     # plot data
     data_to_plot = []

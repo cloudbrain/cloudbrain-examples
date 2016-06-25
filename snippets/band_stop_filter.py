@@ -2,11 +2,10 @@ import pylab as plt
 import numpy as np
 from scipy import signal
 
-number_points = 100
+number_points = 200
 sampling_frequency = 250.0
 sample_spacing = 1.0 / sampling_frequency
 x = np.linspace(start=0.0, stop=number_points * sample_spacing, num=number_points)
-
 
 frequency_to_filter = 60.0
 f_nyquist = 0.5 * sampling_frequency
@@ -23,10 +22,10 @@ fy1 = signal.lfilter(b1, a1, y)
 fy2 = signal.lfilter(b2, a2, fy1)
 
 
-plt.plot(y, label='Original signal')
-plt.plot(fy0, label='Butterworth filter', color='black')
-plt.plot(fy1, label='High pass')
-plt.plot(fy2, label='Band Stop')
+plt.plot(y[50:], label='Original signal', color='pink')
+plt.plot(fy0[50:], label='Butterworth filter', color='black')
+plt.plot(fy1[50:], label='High pass', color='blue')
+plt.plot(fy2[50:], label='Band Stop', color='green')
 plt.legend()
 plt.show()
 

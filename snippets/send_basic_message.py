@@ -2,24 +2,12 @@ import time
 
 from cloudbrain.publishers.rabbitmq import PikaPublisher
 
+from cloudbrain_examples.settings import (base_routing_key, metric_name, num_channels, buffer_size,
+                                          rabbitmq_address, rabbitmq_user, rabbitmq_pwd)
+
 
 
 def main():
-    # Routing info
-    user_id = "some_unique_id"
-    device = 'openbci'
-    base_routing_key = '%s:%s' % (user_id, device)
-
-    # Metric info
-    metric_name = 'eeg'
-    num_channels = 8
-    buffer_size = 2
-
-    # RabbitMQ options
-    rabbitmq_address = 'localhost'
-    rabbitmq_user = 'guest'
-    rabbitmq_pwd = 'guest'
-
     # Message to send
     message = {'timestamp': 100}
     for i in range(num_channels):
